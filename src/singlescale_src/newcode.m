@@ -5,6 +5,25 @@ clc; clear; close all;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 filename = 'test2.gif';
 Choice = [ 0 0 0 1];
+% Choice = [1 0 0 0] is uniaxial strain in the x direction
+% Choice = [0 1 0 0] is uniaxial strain in the y direction
+% Choice = [0 0 1 0] is pure shear strain in the xy direction
+% Choice = [0 0 0 1] is any combination of strains, see below
+%
+% if you use choice = [0 0 0 1] please enter known_vec
+% Enter any combination of strains and stress, please note only 3 values
+% can be provided otherwise the system is overconstrained
+% for example, if you want to apply strain in 11 and 12 (shear), then enter
+% known_vec = [1 3 5] which means strain applied in 11, 12 and stress in
+% 22 is 0 (unconstrained).
+% another example, uniaxial strain in 11 would be known_vec = [1 5 6]
+% strain applied in x direction (1) and stress in y direction (5) and shear
+% direction (6) is free
+%
+% known_vec : eps_xx is 1 eps_yy is 2 eps_xy is 3 sigma_xx is 4 
+% sigma_yy is 5  sigma_xy is 6
+%
+known_vec = [ 1  2 3 ]; 
 gif=1;
 time_step=25;
 percentage_strain=50;
@@ -270,7 +289,6 @@ if Choice(4) == 1
     
     % known_vec = [eps_xx eps_yy eps_xy sigma_xx sigma_yy sigma_xy]
     
-    known_vec = [ 1  2 3 ];
     unknown_vec = setdiff(1:6,known_vec);
     comp_C_mat = [C_mat [1 0 0; 0 1 0; 0 0 1]];
     
