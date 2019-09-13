@@ -3,7 +3,7 @@ clc; clear; close all;
 % ux = A*x + B*y
 % uy = C*x + D*y
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-filename = 'test2.gif';
+filename = 'test2.gif';   %save the resulting gif with this filename
 Choice = [ 0 0 0 1];
 % Choice = [1 0 0 0] is uniaxial strain in the x direction
 % Choice = [0 1 0 0] is uniaxial strain in the y direction
@@ -28,7 +28,9 @@ gif=1;
 time_step=25;
 percentage_strain=50;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Material properties
+% Material properties: in this example, an isotropic material
+% But feel free to change these properties to see how non isotropic 
+% materials behave
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 mod=100e9;
