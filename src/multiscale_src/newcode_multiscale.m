@@ -368,15 +368,15 @@ if Choice(4) == 1
         C(ctr+1)=C(ctr)+C_dot(ctr)*delta_t;
         % --Addition
         [C_mat]=Stiffness(E_mat,E1_fib,E2_fib,nu12_fib,vffib,nu_mat,G12_fib);
-    C11=C_mat(1,1);
-    C12=C_mat(1,2);
-    C13=C_mat(1,3);
-    C21=C_mat(2,1);
-    C22=C_mat(2,2);
-    C23=C_mat(2,3);
-    C31=C_mat(3,1);
-    C32=C_mat(3,2);
-    C33=C_mat(3,3);
+        C11=C_mat(1,1);
+        C12=C_mat(1,2);
+        C13=C_mat(1,3);
+        C21=C_mat(2,1);
+        C22=C_mat(2,2);
+        C23=C_mat(2,3);
+        C31=C_mat(3,1);
+        C32=C_mat(3,2);
+        C33=C_mat(3,3);
     
         sigma_xx_dot(ctr) = C11*A_dot(ctr) + C12*C_dot(ctr) + 2*B_dot(ctr)*C13;
         sigma_xx(ctr+1) = sigma_xx(ctr) + sigma_xx_dot(ctr)*delta_t;
